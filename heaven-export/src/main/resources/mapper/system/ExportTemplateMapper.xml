@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.behappyto.export.mapper.ExportTemplateMapper">
+
+    <resultMap type="cn.behappyto.export.domain.ExportTemplate" id="ExportTemplateResult">
+        <result property="id" column="id"/>
+        <result property="appId" column="app_id"/>
+        <result property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="url" column="url"/>
+        <result property="remark" column="remark"/>
+        <result property="enabled" column="enabled"/>
+        <result property="deleted" column="deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+</mapper>
