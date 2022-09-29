@@ -3,6 +3,7 @@ package cn.behappyto.export.domain.bo;
 import cn.behappyto.common.core.domain.BaseEntity;
 import cn.behappyto.common.core.validate.AddGroup;
 import cn.behappyto.common.core.validate.EditGroup;
+import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import javax.validation.constraints.*;

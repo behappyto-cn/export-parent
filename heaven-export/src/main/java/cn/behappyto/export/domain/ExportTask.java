@@ -1,7 +1,7 @@
 package cn.behappyto.export.domain;
 
 import cn.behappyto.common.core.domain.BaseEntity;
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
 @TableName("export_task")
 public class ExportTask extends BaseEntity {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 主键
@@ -55,6 +55,10 @@ public class ExportTask extends BaseEntity {
      * 分片的值
      */
     private Long sliceNum;
+    /**
+     * 文件地址
+     */
+    private String url;
     /**
      * 备注
      */

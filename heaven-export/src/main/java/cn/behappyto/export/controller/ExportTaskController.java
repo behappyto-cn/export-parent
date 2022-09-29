@@ -19,6 +19,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Arrays;
@@ -108,13 +109,13 @@ public class ExportTaskController extends BaseController {
     /**
      * 下载文件
      *
-     * @param path 下载地址
+     * @param id 下载地址
      */
     @SaCheckPermission("system:task:download")
     @Log(title = "导出任务", businessType = BusinessType.DELETE)
-    @DeleteMapping("/download")
-    public R<Void> download(@NotEmpty(message = "下载路径")
-                            @RequestParam String path) {
-        return toAjax(iExportTaskService.download(path));
+    @PostMapping("/download")
+    public void download(@NotNull(message = "下载参数不能为空")
+                            @RequestParam Long id) {
+        iExportTaskService.download(id);
     }
 }

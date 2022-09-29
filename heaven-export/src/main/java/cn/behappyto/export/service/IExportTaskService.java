@@ -52,5 +52,5 @@ public interface IExportTaskService {
      *
      * @param path 下载地址
      */
-    Boolean download(String path);
+    void download(Long path);
 }

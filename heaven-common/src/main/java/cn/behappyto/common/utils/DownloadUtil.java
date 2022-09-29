@@ -1,4 +1,4 @@
-package com.jiuji.invoice;
+package cn.behappyto.common.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.compress.archivers.ArchiveEntry;
@@ -15,6 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -246,7 +247,7 @@ public class DownloadUtil {
         try {
             response.setContentType(DownloadUtil.getContentType("0.jpg"));
             boolean isPreview = "preview".equalsIgnoreCase(request.getParameter("source"));
-            response.addHeader("Content-Disposition", (!isPreview ? "attachment; " : "") + "filename*=utf-8'zh_cn'" + URLEncoder.encode(fileName, "UTF-8"));
+            response.addHeader("Content-Disposition", MessageFormat.format("{0}filename={1}", !isPreview ? "attachment; " : "", URLEncoder.encode(fileName, "UTF-8")));
             response.setHeader("Accept-Ranges", "bytes");
 
             String range = request.getHeader("Range");
