@@ -109,4 +109,9 @@ public class ExportTaskServiceImpl implements IExportTaskService {
         }
         return baseMapper.deleteBatchIds(ids) > 0;
     }
+
+    @Override
+    public Boolean download(String path) {
+        return null;
+    }
 }

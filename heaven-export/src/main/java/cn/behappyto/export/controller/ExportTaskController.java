@@ -66,7 +66,7 @@ public class ExportTaskController extends BaseController {
     @SaCheckPermission("system:task:query")
     @GetMapping("/{id}")
     public R<ExportTaskVo> getInfo(@NotNull(message = "主键不能为空")
-                                     @PathVariable Long id) {
+                                   @PathVariable Long id) {
         return R.ok(iExportTaskService.queryById(id));
     }
 
@@ -103,5 +103,18 @@ public class ExportTaskController extends BaseController {
     public R<Void> remove(@NotEmpty(message = "主键不能为空")
                           @PathVariable Long[] ids) {
         return toAjax(iExportTaskService.deleteWithValidByIds(Arrays.asList(ids), true) ? 1 : 0);
+    }
+
+    /**
+     * 下载文件
+     *
+     * @param path 下载地址
+     */
+    @SaCheckPermission("system:task:download")
+    @Log(title = "导出任务", businessType = BusinessType.DELETE)
+    @DeleteMapping("/download")
+    public R<Void> download(@NotEmpty(message = "下载路径")
+                            @RequestParam String path) {
+        return toAjax(iExportTaskService.download(path));
     }
 }

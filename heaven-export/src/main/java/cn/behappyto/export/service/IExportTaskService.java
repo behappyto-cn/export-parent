@@ -46,4 +46,11 @@ public interface IExportTaskService {
      * 校验并批量删除导出任务信息
      */
     Boolean deleteWithValidByIds(Collection<Long> ids, Boolean isValid);
+
+    /**
+     * 下载文件
+     *
+     * @param path 下载地址
+     */
+    Boolean download(String path);
 }
